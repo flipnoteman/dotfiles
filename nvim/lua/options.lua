@@ -25,10 +25,13 @@ vim.opt.ignorecase = true           -- ignore case in searches by default
 vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entere
 
 -- Terminal
-vim.opt.shell = '\"C:\\Program Files\\PowerShell\\7\\pwsh.exe\"'
-vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -NoExit -Command'
-vim.opt.shellquote = ''
-vim.opt.shellxquote = ''
-vim.opt.shellpipe = '|'
-vim.opt.shellredir = '>'
-vim.opt.shellslash = true
+if package.config:sub(1,1) == '\\' then
+    vim.opt.shell = '\"C:\\Program Files\\PowerShell\\7\\pwsh.exe\"'
+    vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -NoExit -Command'
+    vim.opt.shellquote = ''
+    vim.opt.shellxquote = ''
+    vim.opt.shellpipe = '|'
+    vim.opt.shellredir = '>'
+    vim.opt.shellslash = true
+end
+
