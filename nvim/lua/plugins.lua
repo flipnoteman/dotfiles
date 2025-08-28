@@ -45,7 +45,11 @@ require("lazy").setup({
 	},
 
     -- Monokai theme
-    "tanvirtin/monokai.nvim",
+    {
+      "polirritmico/monokai-nightasty.nvim",
+      lazy = false,
+      priority = 1000,
+    },
 
     -- Nvim syntax parsing, useful for syntax highligting and lsp stuff
     {

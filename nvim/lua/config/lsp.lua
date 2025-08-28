@@ -24,6 +24,10 @@ local on_attach = function(client, bufnr)
     require('config.keymaps').lsp_on_attach(client, bufnr)
 end
 
+lspconfig.clangd.setup({
+    on_attach = on_attach
+})
+
 lspconfig.pylsp.setup({
 	on_attach = on_attach,
 })
