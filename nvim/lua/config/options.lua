@@ -1,4 +1,3 @@
--- Hint: use `:h <option>` to figure out the meaning if needed
 vim.opt.clipboard = 'unnamedplus'   -- use system clipboard 
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 vim.opt.mouse = 'a'                 -- allow the mouse to be used in Nvim
@@ -24,14 +23,13 @@ vim.opt.hlsearch = false            -- do not highlight matches
 vim.opt.ignorecase = true           -- ignore case in searches by default
 vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entere
 
--- Terminal
-if package.config:sub(1,1) == '\\' then
-    vim.opt.shell = '\"C:\\Program Files\\PowerShell\\7\\pwsh.exe\"'
-    vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -NoExit -Command'
-    vim.opt.shellquote = ''
-    vim.opt.shellxquote = ''
-    vim.opt.shellpipe = '|'
-    vim.opt.shellredir = '>'
-    vim.opt.shellslash = true
-end
-
+-- Uncomment if you want powershell to specify a shell
+--if package.config:sub(1,1) == '\\' then
+--    vim.opt.shell = '\"C:\\Program Files\\PowerShell\\7\\pwsh.exe\"'
+--    vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -NoExit -Command'
+--    vim.opt.shellquote = ''
+--    vim.opt.shellxquote = ''
+--    vim.opt.shellpipe = '|'
+--    vim.opt.shellredir = '>'
+--    vim.opt.shellslash = true
+--end
