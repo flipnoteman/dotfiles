@@ -47,7 +47,7 @@ vim.keymap.set('v', '?', ':norm 3x<CR>', opts)
 -----------
 
 -- List of keymaps to be attached when lsp server is running
-keymaps.lsp_on_attach = function(client, bufnr)
+keymaps.lsp_on_attach = function(bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions

@@ -38,5 +38,15 @@ vim.opt.background = "dark" -- default to dark or light style
 
 local opts = {...} -- options should be setted through a setup call:
 require("monokai-nightasty").load(opts)
-require("config.keymaps")
+
+local keymaps = require("config.keymaps")
+
+vim.api.nvim_create_augroup("lsp_config_group", { clear = true })
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = "lsp_config_group",
+    callback = function(event)
+       keymaps.lsp_on_attach(event.buf)
+    end,
+})
+
 require("config.options")
