@@ -1,15 +1,7 @@
-return
-{
+local blinkcmp = {
   'saghen/blink.cmp',
-  -- optional: provides snippets for the snippet source
   dependencies = { 'rafamadriz/friendly-snippets' },
-
-  -- use a release tag to download pre-built binaries
   version = '1.*',
-  -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-  -- build = 'cargo build --release',
-  -- If you use nix, you can build from source using latest nightly rust with:
-  -- build = 'nix run .#build-plugin',
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
@@ -29,26 +21,58 @@ return
     keymap = { preset = 'default' },
 
     appearance = {
-      -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-      -- Adjusts spacing to ensure icons are aligned
       nerd_font_variant = 'mono'
     },
 
-    -- (Default) Only show the documentation popup when manually triggered
-    completion = { documentation = { auto_show = false } },
+    completion = {
+        documentation = { auto_show = true },
+        ghost_text = { enabled = true },
+        accept = { auto_brackets = { enabled = true}, },
+        list = { selection = { preselect = true }, },
+    },
 
-    -- Default list of enabled providers defined so that you can extend it
-    -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
 
-    -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
-    -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
-    -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
-    --
-    -- See the fuzzy documentation for more information
     fuzzy = { implementation = "prefer_rust_with_warning" }
   },
   opts_extend = { "sources.default" }
+}
+
+local blinkpairs = {
+  'saghen/blink.pairs',
+  version = '*', -- (recommended) only required with prebuilt binaries
+  dependencies = 'saghen/blink.download',
+
+  --- @module 'blink.pairs'
+  --- @type blink.pairs.Config
+  opts = {
+    mappings = {
+      enabled = true,
+    },
+    highlights = {
+      enabled = true,
+      -- requires require('vim._extui').enable({}), otherwise has no effect
+      groups = {
+        'BlinkPairsRed',
+        'BlinkPairsOrange',
+        'BlinkPairsYellow',
+        'BlinkPairsGreen',
+        'BlinkPairsBlue',
+        'BlinkPairsPurple',
+      },
+
+      matchparen = {
+        enabled = true,
+        group = 'BlinkPairsMatchParen',
+      },
+    },
+    debug = false,
+  }
+}
+
+return {
+    blinkcmp,
+    blinkpairs,
 }
