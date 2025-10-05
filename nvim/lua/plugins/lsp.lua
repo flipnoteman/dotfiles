@@ -7,6 +7,11 @@ return {
 			lua_ls = {},
 			rust_analyzer = {},
 			clangd = {},
+            ltex_plus = {
+--                cmd = {"ltex-ls-plus"},
+--                filetypes = {"tex", "bib", "md"},
+--                rootmarkers = {".git", "main.tex"}
+            }
 		}
 	  },
       config = function(_, opts)
