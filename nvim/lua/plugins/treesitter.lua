@@ -10,7 +10,7 @@ return {
               ensure_installed = { "rust", "xml", "c", "cpp", "lua", "vim"},
               sync_install = false,
               highlight = { enable = true },
-              indent = { enable = true },
+              indent = { enable = false },
             })
         end
      },
