@@ -31,12 +31,12 @@ require("lazy").setup({
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = { enabled = true, notify = false },
 })
 
 vim.opt.background = "dark" -- default to dark or light style
 
-local opts = {...} -- options should be setted through a setup call:
+local opts = {...} -- options should be set through a setup call:
 require("monokai-nightasty").load(opts)
 
 local keymaps = require("config.keymaps")
