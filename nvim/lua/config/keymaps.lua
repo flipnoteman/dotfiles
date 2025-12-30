@@ -39,8 +39,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostic
 vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
 
-vim.keymap.set('v', '/', '', opts)
-
 -----------
 -- Other --
 -----------
